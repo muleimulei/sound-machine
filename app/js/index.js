@@ -1,6 +1,10 @@
 'use  strict'
 
+var {ipcRenderer} = require('electron');
+
 var soundButtons = document.querySelectorAll('.button-sound');
+var close = document.querySelector('.close');
+var setting = document.querySelector('.settings');
 
 for(let i = 0; i< soundButtons.length; i++){
     let soundButton = soundButtons[i];
@@ -16,3 +20,11 @@ function prepareButton(buttonEl,soundName){
         audio.play();
     });
 }
+
+close.addEventListener('click',function(){
+    ipcRenderer.send('close-main-window');
+});
+
+setting.addEventListener('click',function(){
+    ipcRenderer.send('open-settings-window');
+});

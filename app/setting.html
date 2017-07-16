@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <div class="close">Close</div>
+    <div id="settings-screen" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Settings</h3>
+                <p>Modifier keys for global shortcuts</p>
+                <p>
+                    <input type="checkbox" class="global-shortcut" id="global-shortcut-ctrl" data-modifier-key="ctrl">
+                    <label for="global-shortcut-ctrl">Ctrl</label>
+                </p>
+
+                <p>
+                    <input type="checkbox" class="global-shortcut" id="global-shortcut-shift" data-modifier-key="shift">
+                    <label for="global-shortcut-shift">Shift</label>
+                </p>
+
+                <p>
+                    <input type="checkbox" class="global-shortcut" id="global-shortcut-alt" data-modifier-key="alt">
+                    <label for="global-shortcut-alt">Alt</label>
+                </p>
+            </div>
+        </div>
+    </div>
+<script src="js/settings.js"></script>
+</body>
+</html>

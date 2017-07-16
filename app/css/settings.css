@@ -1,0 +1,7 @@
+html,body{
+    background: #044d7f;
+    overflow: hidden;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+}
+
