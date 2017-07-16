@@ -1,0 +1,113 @@
+html,body{
+    -webkit-app-region: drag;
+    background: #0c7ca2;
+    overflow: hidden;
+    width: 368px;
+    height: 725px;
+    -webkit-user-select: none;
+}
+
+#main{
+    background: #1dcceb;
+    border-bottom: 1px solid #73e2f7;
+    height: 700px;
+}
+
+.speaker{
+    padding-top: 50px;
+    text-align: center;
+}
+
+.speaker img{
+    height: 194px;
+    width: 274px;
+}
+
+#main h1{
+    color: #fff;
+    padding-right: 6px;
+    padding-top: 5px;
+}
+
+#main h4 img{
+    height: 100%;
+    width: 100%;
+}
+
+.buttons{
+    padding: 0 20px;
+}
+
+.buttons > div{
+    text-align: center;
+}
+
+.button-sound{
+    background-color: #0c7ca2;
+    border-radius: 100%;
+    cursor: pointer;
+    display: inline-block;
+    height: 12px;
+    margin-top: 57px;
+    position: relative;
+    width: 12px;
+    box-shadow: 0 4px 0 #044d7f;
+    -webkit-app-region: no-drag;
+}
+
+
+.button-sound:hover {
+    box-shadow: 0 2px 0 #044D7F;
+    top: 2px;
+}
+
+.button-sound:hover > span {
+    top: -42px;
+}
+
+.button-sound:active {
+    box-shadow: 0 0 0 #044D7F;
+    top: 5px;
+}
+
+.button-sound:active > span {
+    top: -45px;
+}
+
+.button-icon{
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    display: inline-block;
+    top: -40px;
+    left: -8px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    -webkit-app-region: no-drag;
+}
+
+.settings, .close{
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+    -webkit-app-region: no-drag;
+    text-indent: -10000px;
+}
+
+.settings {
+    background: transparent url(../img/settings.png)  no-repeat;
+    background-size: 24px 24px;
+    right: 38px;
+    top: 10px;
+}
+
+.close{
+    right: 6px;
+    background-size: 24px 24px; 
+    background: transparent url(../img/close.png)  no-repeat;
+    background-size: 24px 24px;
+    top:10px;
+}
