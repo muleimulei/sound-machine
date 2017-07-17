@@ -38,7 +38,7 @@ app.on('ready', function () {
 });
 
 function setGlobalShortcuts(mainWindow) {
-    setGlobalShortcuts.unregisterAll();
+    globalShortcut.unregisterAll();
     var shortcutKeysSettings = config.readSettings('shortcutKeys');
     var prefix = shortcutKeysSettings.length == 0 ? '' : shortcutKeysSettings.join('+') + '+';
     globalShortcut.register(prefix+'1', function () {
@@ -47,14 +47,15 @@ function setGlobalShortcuts(mainWindow) {
     globalShortcut.register(prefix+'2', function () {
         mainWindow.webContents.send('global-shortcut', 1);
     });
-
 }
 
 
 ipcMain.on('close-main-window', function () {
     app.quit();
 });
-
+ipcMain.on('set-global-shortcuts',function(){
+    setGlobalShortcuts();
+});
 ipcMain.on('open-settings-window', function () {
     if (settingsWindow) {
         return;
