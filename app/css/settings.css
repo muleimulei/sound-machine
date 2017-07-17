@@ -5,3 +5,33 @@ html,body{
     -webkit-user-select: none;
 }
 
+#settings-screen{
+    color: white;
+}
+
+h2{
+    margin-top: 8px;
+}
+
+input,label{
+    -webkit-app-region: no-drag;
+}
+
+input{
+    padding: 10px;
+}
+
+.close{
+    background: transparent url(../img/close.png) no-repeat 4px 4px;
+    background-size: cover;
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 32px;
+    -webkit-app-region: no-drag;
+    z-index: 1;
+}

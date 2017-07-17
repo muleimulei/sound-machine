@@ -28,3 +28,8 @@ close.addEventListener('click',function(){
 setting.addEventListener('click',function(){
     ipcRenderer.send('open-settings-window');
 });
+
+ipcRenderer.on('global-shortcut',function(event,arg){
+    let evt = new MouseEvent('click');
+    soundButtons[arg].dispatchEvent(evt);
+});
