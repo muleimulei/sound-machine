@@ -4,7 +4,9 @@ var {
     app,
     BrowserWindow,
     ipcMain,
-    globalShortcut
+    globalShortcut,
+    Tray,
+    Menu
 } = require("electron");
 var config = require('./config.js');
 var mainWindow = null;
@@ -14,7 +16,7 @@ app.on('ready', function () {
     mainWindow = new BrowserWindow({
         height: 600,
         width: 373,
-        // frame: false,
+        frame: false,
         resizable: false
     });
     // mainWindow.webContents.openDevTools();
@@ -35,16 +37,47 @@ app.on('ready', function () {
     }
 
     setGlobalShortcuts(mainWindow);
+
+
+
+    // let tray = null;
+
+    // tray = new Tray(__dirname + '/app/img/tray-iconTemplate.png');
+    // const contextMenu = Menu.buildFromTemplate([
+    //     {
+    //         label: 'Sound machine',
+    //         type: 'radio'
+    //     },
+    //     {
+    //         label: 'Settings',
+    //         type: 'radio'
+    //     },
+    //     {
+    //         label: 'Quit',
+    //         type: 'radio'
+    //     }
+    // ]);
+    // const contextMenu = Menu.buildFromTemplate([{
+    //         label: 'Item1',
+    //         type: 'radio'
+    //     },
+    //     {
+    //         label: 'Item2',
+    //         type: 'radio'
+    //     }
+    // ])
+    // let trayMenu = Menu.buildFromTemplate(contextMenu);
+    // tray.setContextMenu(trayMenu);
 });
 
 function setGlobalShortcuts(mainWindow) {
     globalShortcut.unregisterAll();
     var shortcutKeysSettings = config.readSettings('shortcutKeys');
     var prefix = shortcutKeysSettings.length == 0 ? '' : shortcutKeysSettings.join('+') + '+';
-    globalShortcut.register(prefix+'1', function () {
+    globalShortcut.register(prefix + '1', function () {
         mainWindow.webContents.send('global-shortcut', 0);
     });
-    globalShortcut.register(prefix+'2', function () {
+    globalShortcut.register(prefix + '2', function () {
         mainWindow.webContents.send('global-shortcut', 1);
     });
 }
@@ -53,7 +86,7 @@ function setGlobalShortcuts(mainWindow) {
 ipcMain.on('close-main-window', function () {
     app.quit();
 });
-ipcMain.on('set-global-shortcuts',function(){
+ipcMain.on('set-global-shortcuts', function () {
     setGlobalShortcuts();
 });
 ipcMain.on('open-settings-window', function () {
@@ -61,7 +94,7 @@ ipcMain.on('open-settings-window', function () {
         return;
     }
     settingsWindow = new BrowserWindow({
-        // frame: false,
+        frame: false,
         height: 250,
         resizable: false,
         width: 200
